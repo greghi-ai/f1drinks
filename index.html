@@ -46,10 +46,10 @@ a{color:inherit}
 
 /* HERO */
 .hero{position:relative;min-height:min(100svh,860px);display:flex;align-items:center;overflow:hidden;padding:96px 0 56px}
-.hero .glow{position:absolute;border-radius:50%;filter:blur(80px);opacity:.55;pointer-events:none}
-.g1{width:620px;height:620px;background:#1e9c4a;left:-160px;top:-120px}
-.g2{width:560px;height:560px;background:#5b2bd6;right:-140px;top:60px;opacity:.45!important}
-.g3{width:420px;height:420px;background:#ff6a2b;right:22%;bottom:-220px;opacity:.35!important}
+.hero .glow{position:absolute;border-radius:50%;pointer-events:none}
+.g1{width:900px;height:900px;background:radial-gradient(closest-side,rgba(30,156,74,.55),rgba(30,156,74,0));left:-300px;top:-300px}
+.g2{width:860px;height:860px;background:radial-gradient(closest-side,rgba(91,43,214,.45),rgba(91,43,214,0));right:-300px;top:-80px}
+.g3{width:700px;height:700px;background:radial-gradient(closest-side,rgba(255,106,43,.32),rgba(255,106,43,0));right:15%;bottom:-380px}
 .hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");pointer-events:none;mix-blend-mode:overlay}
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;width:100%}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,6.2vw,96px);line-height:.98;letter-spacing:-.015em}
@@ -62,7 +62,7 @@ a{color:inherit}
 .btn-ghost{border:1px solid var(--line)}
 .btn-ghost:hover{border-color:var(--ink)}
 .stage{position:relative;height:min(68vh,600px);display:flex;align-items:flex-end;justify-content:center}
-.stage::before{content:"";position:absolute;left:50%;top:46%;width:80%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(60,255,122,.42),rgba(60,255,122,.08) 60%,transparent);filter:blur(10px)}
+.stage::before{content:"";position:absolute;left:50%;top:46%;width:80%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(60,255,122,.42),rgba(60,255,122,.08) 60%,transparent);}
 .stage img{position:relative;flex:none;filter:drop-shadow(0 34px 34px rgba(0,0,0,.65))}
 .ph-bottle{height:96%;z-index:1;margin-right:-11%;animation:float 8s ease-in-out infinite}
 .ph-glass{height:60%;z-index:3;animation:float 6.5s ease-in-out -2s infinite}
@@ -113,14 +113,16 @@ a{color:inherit}
 @media(max-width:900px){.fgrid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin-right:-24px;padding-right:24px}.fgrid>*{scroll-snap-align:start}}
 .fc{position:relative;border-radius:22px;overflow:hidden;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .fc:hover{transform:translateY(-6px)}
-.fc .art{position:relative;aspect-ratio:4/4.3;display:grid;place-items:end center;overflow:hidden}
+.fc .art{position:relative;aspect-ratio:4/4.3;overflow:hidden}
 .fc .art::before{content:"";position:absolute;inset:0;background:var(--grad)}
 .fc .art::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 50% at 50% 35%,rgba(255,255,255,.28),transparent 70%)}
-.fc .art svg{position:relative;z-index:1;height:84%;margin-bottom:-2%;filter:drop-shadow(0 24px 24px rgba(0,0,0,.45));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.fc:hover .art svg{transform:scale(1.05) rotate(-2deg)}
-.fc .art .duo{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;gap:0;height:84%}
-.fc .art .duo svg{position:static;height:100%;margin:0 -6%}
+.fc .art>svg{position:absolute;z-index:1;left:50%;bottom:-2%;height:84%;width:auto;translate:-50% 0;filter:drop-shadow(0 24px 24px rgba(0,0,0,.45));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.fc:hover .art>svg{transform:scale(1.05) rotate(-2deg)}
+.fc .art .duo{position:absolute;z-index:1;left:0;right:0;bottom:0;height:84%;display:flex;align-items:flex-end;justify-content:center}
+.fc .art .duo svg{height:100%;width:auto;flex:none;margin:0 -6%;filter:drop-shadow(0 24px 24px rgba(0,0,0,.45))}
 .fc .art .duo svg+svg{height:52%}
+.fc .phd{position:absolute;inset:16%;z-index:1;display:grid;place-items:center;border:1.5px dashed rgba(255,255,255,.4);border-radius:18px}
+.fc .phd span{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75)}
 .fc .lbl{position:absolute;top:14px;left:14px;z-index:2;display:flex;gap:6px}
 .fc .body{padding:18px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .fc .row1{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
@@ -287,6 +289,8 @@ footer .big em{color:var(--neon)}
 
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.reveal{opacity:1;transform:none;transition:none}.hero::after{display:none}.top.solid,.mtools{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(9,9,10,.97)}.tagf{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(14,14,16,.88)}.stage img{filter:none}.ticker .t{animation-duration:70s}}
+.mgroup{content-visibility:auto;contain-intrinsic-size:auto 900px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -306,13 +310,13 @@ footer .big em{color:var(--neon)}
 <section class="hero">
   <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
   <div class="wrap">
-    <div class="reveal">
+    <div>
       <div class="eyebrow" style="margin-bottom:18px">Delivery de bebidas · Baixada Santista</div>
       <h1>Gelada,<br>rápida e<br><em>na sua porta.</em></h1>
       <p class="lead">Do gin tônica ao combo de whisky: destilados, combos montados, cervejas trincando e gelo de sabor. Monte o pedido aqui e mande direto no nosso WhatsApp.</p>
       <div class="hero-cta"><a class="btn btn-neon" href="#cardapio">Fazer meu pedido →</a><a class="btn btn-ghost" href="#combos">Ver combos</a></div>
     </div>
-    <div class="stage reveal" id="stage"></div>
+    <div class="stage" id="stage"></div>
   </div>
 </section>
 
@@ -606,7 +610,7 @@ function featCard(p,i){
   const rb=/red bull/i.test(p.name)?art(P.find(x=>x.name==="Red Bull Lata")):"";
   const main=art(p,p.name.split(/ com /i)[0]);
   return `<article class="fc reveal" style="--grad:${GRADS[i%GRADS.length]}" data-f="${p.id}">
-    <div class="art"><div class="lbl">${pills(p,true)}</div>${rb?`<div class="duo">${main}${rb}</div>`:main}</div>
+    <div class="art"><div class="lbl">${pills(p,true)}</div><div class="phd"><span>foto do produto</span></div></div>
     <div class="body"><div class="row1"><h4>${p.name}</h4><span class="pr">${priceTx(p)}</span></div>
     ${p.desc?`<div class="ds">${p.desc}</div>`:""}<div class="act">${bigCtrl(p)}</div></div></article>`;
 }
@@ -719,14 +723,14 @@ function renderCheckout(){
    <div class="f"><label>Nome</label><input id="fNome" value="${val("fNome")}" placeholder="Como te chamamos?"></div>
    <div class="f"><label>WhatsApp</label><input id="fTel" value="${val("fTel")}" inputmode="tel" placeholder="(13) 9 9999-9999"></div>
    <div class="lap">02 · Entrega</div>
-   <div class="f"><div class="seg" data-n="modo"><button type="button" data-v="Entrega" class="${opts.modo==="Entrega"?"on":""}">🛵 Entregar</button><button type="button" data-v="Retirada" class="${opts.modo==="Retirada"?"on":""}">🏪 Vou retirar</button></div></div>
+   <div class="f"><div class="seg" data-n="modo"><button type="button" data-v="Entrega" class="${opts.modo==="Entrega"?"on":""}">Entregar</button><button type="button" data-v="Retirada" class="${opts.modo==="Retirada"?"on":""}">Vou retirar</button></div></div>
    <div id="addr" class="${opts.modo==="Entrega"?"":"hide"}">
     <div class="f f2"><div><label>Rua / Avenida</label><input id="fRua" value="${val("fRua")}"></div><div><label>Número</label><input id="fNum" value="${val("fNum")}"></div></div>
     <div class="f f2"><div><label>Bairro</label><input id="fBairro" value="${val("fBairro")}"></div><div><label>Compl.</label><input id="fComp" value="${val("fComp")}" placeholder="Apto"></div></div>
     <div class="f"><label>Ponto de referência (opcional)</label><input id="fRef" value="${val("fRef")}"></div>
    </div>
    <div class="lap">03 · Pagamento</div>
-   <div class="f"><div class="seg" data-n="pag"><button type="button" data-v="Pix" class="${opts.pag==="Pix"?"on":""}">⚡ Pix</button><button type="button" data-v="Cartão online" class="${opts.pag==="Cartão online"?"on":""}">💳 Cartão online</button><button type="button" data-v="Cartão na entrega" class="${opts.pag==="Cartão na entrega"?"on":""}">🏍️ Cartão na entrega</button><button type="button" data-v="Dinheiro" class="${opts.pag==="Dinheiro"?"on":""}">💵 Dinheiro</button></div></div>
+   <div class="f"><div class="seg" data-n="pag"><button type="button" data-v="Pix" class="${opts.pag==="Pix"?"on":""}">Pix</button><button type="button" data-v="Cartão online" class="${opts.pag==="Cartão online"?"on":""}">Cartão online</button><button type="button" data-v="Cartão na entrega" class="${opts.pag==="Cartão na entrega"?"on":""}">Cartão na entrega</button><button type="button" data-v="Dinheiro" class="${opts.pag==="Dinheiro"?"on":""}">Dinheiro</button></div></div>
    <div class="paynote ${opts.pag==="Cartão online"?"":"hide"}" id="onlineBox"><b>Pagamento online seguro.</b> Assim que a loja confirmar seu pedido, você recebe no WhatsApp o link para pagar no crédito ou débito, com a taxa de entrega já somada.</div><div class="f ${opts.pag==="Dinheiro"?"":"hide"}" id="trocoBox"><label>Troco para quanto? (opcional)</label><input id="fTroco" inputmode="decimal" placeholder="Ex.: 100"></div>
    <div class="f"><label>Observações (opcional)</label><textarea id="fObs" rows="2" placeholder="Sabor do gelo, bem gelada, sem copo…"></textarea></div>
    <div class="recap">${Object.keys(cart).filter(id=>byId[id]).map(id=>`<div class="l"><span>${cart[id]}× ${byId[id].name}</span><b>${brl(byId[id].price*cart[id])}</b></div>`).join("")}</div>

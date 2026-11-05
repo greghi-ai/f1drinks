@@ -1,11 +1,20 @@
-# F1 Drinks — Site de pedidos (prévia)
+# F1 Drinks — Site institucional (prévia)
 
 Proposta de site de pedidos para a **F1 Drinks**, delivery de bebidas em Santos – SP.
 Prévia não oficial, criada por Guilherme Greg ([@gframe](https://instagram.com/gframe)) para apresentar à loja.
 
 **Ver online:** https://greghi-ai.github.io/f1drinks/
 
-## O que o site faz
+## Páginas
+
+- `index.html`: site institucional (história, bastidores, fotos, turistas, visite, FAQ). Pedidos vão para o InstaDelivery da loja.
+- `pedidos.html`: primeira prévia, com sacola e pedido pelo WhatsApp.
+
+## Como colocar fotos e vídeos
+
+Crie as pastas `fotos/` e `videos/` e, no `index.html`, preencha `src` nas listas `VIDEOS`, `HIST` e `GAL` (ex.: `"videos/copao.mp4"`, `"fotos/fachada.jpg"`). Vídeos verticais (9:16), MP4, até ~8 MB cada.
+
+## O que a primeira prévia faz (pedidos.html)
 
 - Capa com fotos dos produtos e etiquetas de preço clicáveis
 - "Os mais pedidos" em destaque e letreiro de promoções
